@@ -1,8 +1,12 @@
 export class Conta{
     constructor(saldoInicial, cliente, agencia){
+        if(this.constructor == Conta){
+            throw new Error("Você não deveria instanciar um objeto do tipo Conta!");
+        }
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
+        
     }
 
     set cliente(novoValor){
@@ -22,11 +26,17 @@ export class Conta{
 
     sacar(valor){
         let taxa = 1;
+        return this._sacar(valor, taxa);
+        
+    }
+
+    _sacar(valor, taxa){
         const valorSacado = taxa * valor;
         if(this._saldo >= valorSacado){
             this._saldo -= valorSacado;
             return valorSacado;
         }
+        return 0;
     }
 
     depositar(valor){
