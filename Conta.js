@@ -1,3 +1,5 @@
+// Classe Abastrata
+
 export class Conta{
     constructor(saldoInicial, cliente, agencia){
         if(this.constructor == Conta){
@@ -24,9 +26,9 @@ export class Conta{
         return this._saldo;
     }
 
+    //metodo abstrato
     sacar(valor){
-        let taxa = 1;
-        return this._sacar(valor, taxa);
+        throw new Error("O metodo sacar é abstrato!")
         
     }
 

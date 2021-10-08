@@ -9,6 +9,7 @@ export class ContaCorrente extends Conta {
         ContaCorrente.numerosDeContas += 1;
     }
 
+    //Sobrescrevendo o metodo sacar da classe mãe.
     sacar(valor){
         let taxa = 1.1;
         return this._sacar(valor, taxa);
